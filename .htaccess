@@ -1,0 +1,36 @@
+RewriteEngine on
+
+RewriteCond %{HTTPS} !^on$
+RewriteRule (.*) https:\//%{HTTP_HOST}/$1 [R]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^/index\.html$ www.whapp.pl 
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^katalog/$ /dashbord.php
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^/inc/display\.php$ /inc/displayChar.php
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^dodaj-postac/$ /addCharacterStep1.php
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^edytuj/([0-9]+)/$ /addNPC.php?q=$1
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^edytuj/([0-9]+)/([a-zA-Z]+)/([a-zA-Z]+)/([a-zA-Z]+)/$ /addNPC.php?q=$1&r=$2&cc=$3&n=$4
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^konto/$ /account.php
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^moje-postaci/$ /myCharacters.php
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^konto/sukces/haslo/$ /account.php?success=newPassword
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^konto/sukces/nick/$ /account.php?success=newPassword
+
+
